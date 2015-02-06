@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <Class>
+  <Name>First</Name>
+  <Sections>
+    <Section>
+      <Name>A</Name>
+      <Students>
+        <Student>Dido</Student>
+        <Student>Ivan</Student>
+        <Student>Kiro</Student>
+        <Student>Gosho</Student>
+      </Students>
+    </Section>
+    <Section>B</Section>
+    <Students>
+      <Student>Robert</Student>
+      <Student>Julie</Student>
+      <Student>Kalie</Student>
+      <Student>Michael</Student>
+    </Students>
+  </Sections>
+  </Class>
+
+
+
+<emlpoyer>
+<name>TheBoss</name>
+<startDate>2014-3-01</startDate>
+<endDate>2014-10-31</endDate>
+</emlpoyer>
+<address>
+<street>Denu Chokanov</street>
+<streetNo>8</streetNo>
+<section>centyr</section>
+<city>Veliko Tyrnovo</city>
+</address>

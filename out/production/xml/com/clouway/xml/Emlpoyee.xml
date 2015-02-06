@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+  <employee>
+    <firstName>Dido</firstName>
+    <lastName>Sadinov</lastName>
+    <age>26</age>
+    <position>Programmer</position>
+    <employer>
+      <name>TheBoss</name>
+      <startDate>2014-3-01</startDate>
+      <endDate>2014-10-31</endDate>
+    </employer>
+    <address>
+      <street>Denu Chokanov</street>
+      <streetNo>8</streetNo>
+      <section>centyr</section>
+      <city>Veliko Tyrnovo</city>
+    </address>
+  </employee>
+</employees>
