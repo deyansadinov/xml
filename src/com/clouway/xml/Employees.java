@@ -7,8 +7,8 @@ import java.util.List;
  */
 public class Employees {
 
-  private List<Employee> employeeList;
+   Employee employee;
 
-  public Employee employee;
-
+  public Employees() {
+  }
 }

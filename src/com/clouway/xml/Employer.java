@@ -1,6 +1,6 @@
 package com.clouway.xml;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @author Deyan Sadinov <sadinov88@gmail.com>
@@ -14,5 +14,4 @@ public class Employer {
   public Employer() {
 
   }
-
 }

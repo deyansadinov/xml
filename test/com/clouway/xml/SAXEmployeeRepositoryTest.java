@@ -8,6 +8,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import java.io.File;
+import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -17,15 +18,21 @@ public class SAXEmployeeRepositoryTest {
   @Test
   public void happyPath() throws Exception{
     SAXParserFactory factory = SAXParserFactory.newInstance();
-//    factory.setValidating(true);
+
     SAXParser saxParser = factory.newSAXParser();
-    SAXEmployeeRepository saxEmployeeRepository = new SAXEmployeeRepository();
+    SaxEmployeesParser saxEmployeeParser = new SaxEmployeesParser();
     File f = new File("src/com/clouway/xml/Emlpoyee.xml");
-    saxParser.parse(f,saxEmployeeRepository);
+    saxParser.parse(f,saxEmployeeParser);
 
-//    Object object = saxEmployeeRepository.getRoot();
+    List result = saxEmployeeParser.getList();
 
-//    assertThat(object,is(notNullValue()));
+    assertThat(result.size(),is(1));
+
+    Object object = saxEmployeeParser.getRoot();
+
+    assertThat(object,is(notNullValue()));
+
+
 
 
   }
