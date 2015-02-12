@@ -30,16 +30,16 @@ public class SaxEmployeesParser extends DefaultHandler {
       currentObject = Class.forName("com.clouway.xml." + capitalizeWord(qName)).newInstance();
     } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
     }
-    if (root != null && flag) {
+
+    if (!flag){
       parentObject = currentObject;
-      flag = false;
+      flag = true;
     }
 
     if (root == null) {
       root = currentObject;
+      flag = false;
     }
-
-
   }
 
 
@@ -54,19 +54,20 @@ public class SaxEmployeesParser extends DefaultHandler {
 
     System.out.println("</" + qName + ">");
 
-    if (isItAField(currentObject, qName)) {
+
+    if (qName.equalsIgnoreCase(currentObject.getClass().getSimpleName()) && currentObject != parentObject) {
+        setParameter(parentObject, currentObject.getClass().getSimpleName(), currentObject);
+
+    }
+
+    if (currentObject != null){
       setParameter(currentObject, qName, temp);
     }
 
-    if (qName.equalsIgnoreCase(currentObject.getClass().getSimpleName()) && currentObject != parentObject) {
-      if (isItAField(parentObject, currentObject.getClass().getSimpleName())) {
-        setParameter(parentObject, currentObject.getClass().getSimpleName(), currentObject);
-      }
-    }
-
     if (parentObject.getClass().getSimpleName().equalsIgnoreCase(qName)) {
-      flag = true;
       list.add(parentObject);
+      flag = true;
+
     }
   }
 
@@ -88,15 +89,6 @@ public class SaxEmployeesParser extends DefaultHandler {
     }
   }
 
-  private boolean isItAField(Object currentObject, String qName) {
-    Field[] fields = currentObject.getClass().getDeclaredFields();
-    for (Field each : fields) {
-      if (each.getName().equalsIgnoreCase(qName)) {
-        return true;
-      }
-    }
-    return false;
-  }
 
   private String capitalizeWord(String qName) {
     return qName.substring(0, 1).toUpperCase() + qName.substring(1);

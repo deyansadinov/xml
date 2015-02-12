@@ -20,7 +20,7 @@ public class Main {
       try {
         SaxEmployeesParser handler = new SaxEmployeesParser();
         parser.parse("src/com/clouway/xml/Emlpoyee.xml", handler);
-       List result= handler.getList();
+        List result = handler.getList();
         System.out.println();
       } catch (IOException e) {
         e.printStackTrace();
